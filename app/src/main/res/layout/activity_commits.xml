@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.activities.CommitsActivity">
+
+    <include layout="@layout/toolbar"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.polyakov.androidgithubclient.view.widgets.EmptyRecyclerView
+            android:id="@id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:paddingTop="?attr/actionBarSize"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+        <ImageView
+            android:id="@+id/cats_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/cat3"/>
+
+        <TextView
+            android:id="@id/empty"
+            android:layout_below="@id/cats_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/empty_commits"
+            android:layout_marginTop="@dimen/padding_xsmall"
+            android:textColor="@color/error_text_color"
+            android:textSize="@dimen/text.15"/>
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>
