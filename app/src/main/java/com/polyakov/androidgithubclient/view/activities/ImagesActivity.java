@@ -10,8 +10,8 @@ import java.util.List;
 
 import com.polyakov.androidgithubclient.R;
 import com.polyakov.androidgithubclient.view.adapters.StartImagesAdapter;
-import com.polyakov.androidgithubclient.view.content.Benefit;
-import com.polyakov.androidgithubclient.view.utils.PreferenceUtils;
+import com.polyakov.androidgithubclient.view.holders.BenefitResHolder;
+import com.polyakov.androidgithubclient.utils.PreferenceUtils;
 import com.polyakov.androidgithubclient.view.widgets.PageChangeViewPager;
 
 import butterknife.BindView;
@@ -95,12 +95,12 @@ public class ImagesActivity extends AppCompatActivity implements
     }
 
     @NonNull
-    private List<Benefit> getBenefits() {
-        return new ArrayList<Benefit>() {
+    private List<BenefitResHolder> getBenefits() {
+        return new ArrayList<BenefitResHolder>() {
             {
-                add(Benefit.WORK_TOGETHER);
-                add(Benefit.CODE_HISTORY);
-                add(Benefit.PUBLISH_SOURCE);
+                add(BenefitResHolder.WORK_TOGETHER);
+                add(BenefitResHolder.CODE_HISTORY);
+                add(BenefitResHolder.PUBLISH_SOURCE);
             }
         };
     }

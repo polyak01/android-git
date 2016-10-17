@@ -1,4 +1,4 @@
-package com.polyakov.androidgithubclient.model.api;
+package com.polyakov.androidgithubclient.presenter.api;
 
 import android.support.annotation.NonNull;
 

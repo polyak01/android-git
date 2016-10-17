@@ -13,7 +13,7 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-    
+
     <style name="AppTheme.NoActionBar.Fullscreen">
         <item name="android:windowTranslucentStatus" tools:targetApi="kitkat">true</item>
     </style>

@@ -1,4 +1,4 @@
-package com.polyakov.androidgithubclient.view.utils;
+package com.polyakov.androidgithubclient.utils;
 
 import android.support.annotation.NonNull;
 

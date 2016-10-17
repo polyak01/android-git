@@ -1,9 +1,9 @@
-package com.polyakov.androidgithubclient.model.api;
+package com.polyakov.androidgithubclient.presenter.api;
 
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
-import com.polyakov.androidgithubclient.view.utils.PreferenceUtils;
+import com.polyakov.androidgithubclient.utils.PreferenceUtils;
 
 import java.io.IOException;
 

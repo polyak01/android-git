@@ -2,12 +2,9 @@ package com.polyakov.androidgithubclient.presenter;
 
 import android.support.annotation.NonNull;
 
-import com.polyakov.androidgithubclient.model.Authorization;
 import com.polyakov.androidgithubclient.model.Repository;
 import com.polyakov.androidgithubclient.presenter.api.ApiFactory;
-import com.polyakov.androidgithubclient.view.interfaces.GithubRepository;
-import com.polyakov.androidgithubclient.utils.AuthorizationUtils;
-import com.polyakov.androidgithubclient.utils.PreferenceUtils;
+import com.polyakov.androidgithubclient.view.interfaces.ISearchGithubRepository;
 
 import java.util.List;
 
@@ -17,16 +14,15 @@ import ru.arturvasilov.rxloader.RxUtils;
 import rx.Observable;
 
 /**
- * @author Yaroslav
+ * Created by SnowFlake on 17.10.2016.
  */
 
-public class DefaultGithubRepository implements GithubRepository {
-
+public class SearchGitRepository implements ISearchGithubRepository {
     @NonNull
     @Override
-    public Observable<List<Repository>> repositories() {
+    public Observable<List<Repository>> repositories(String repositoryName) {
         return ApiFactory.getGithubService()
-                .repositories()
+                .repositorySearching(repositoryName)
                 .flatMap(repositories -> {
                     Realm.getDefaultInstance().executeTransaction(realm -> {
                         realm.delete(Repository.class);
@@ -38,20 +34,6 @@ public class DefaultGithubRepository implements GithubRepository {
                     Realm realm = Realm.getDefaultInstance();
                     RealmResults<Repository> repositories = realm.where(Repository.class).findAll();
                     return Observable.just(realm.copyFromRealm(repositories));
-                })
-                .compose(RxUtils.async());
-    }
-
-    @NonNull
-    public Observable<Authorization> auth(@NonNull String login, @NonNull String password) {
-        String authorizationString = AuthorizationUtils.createAuthorizationString(login, password);
-        return ApiFactory.getGithubService()
-                .authorize(authorizationString, AuthorizationUtils.createAuthorizationParam())
-                .flatMap(authorization -> {
-                    PreferenceUtils.saveToken(authorization.getToken());
-                    PreferenceUtils.saveUserName(login);
-                    ApiFactory.recreate();
-                    return Observable.just(authorization);
                 })
                 .compose(RxUtils.async());
     }

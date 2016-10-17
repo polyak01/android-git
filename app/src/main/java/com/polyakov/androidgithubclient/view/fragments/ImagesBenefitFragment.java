@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.polyakov.androidgithubclient.R;
-import com.polyakov.androidgithubclient.view.content.Benefit;
+import com.polyakov.androidgithubclient.view.holders.BenefitResHolder;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,12 +28,12 @@ public class ImagesBenefitFragment extends Fragment {
     @BindView(R.id.benefitText)
     TextView mBenefitText;
 
-    private Benefit mBenefit;
+    private BenefitResHolder mBenefitResHolder;
 
     @NonNull
-    public static ImagesBenefitFragment create(@NonNull Benefit benefit) {
+    public static ImagesBenefitFragment create(@NonNull BenefitResHolder benefitResHolder) {
         Bundle bundle = new Bundle();
-        bundle.putString(BENEFIT_KEY, benefit.name());
+        bundle.putString(BENEFIT_KEY, benefitResHolder.name());
         ImagesBenefitFragment fragment = new ImagesBenefitFragment();
         fragment.setArguments(bundle);
         return fragment;
@@ -42,8 +42,8 @@ public class ImagesBenefitFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        String benefit = getArguments().getString(BENEFIT_KEY, Benefit.WORK_TOGETHER.name());
-        mBenefit = Benefit.valueOf(benefit);
+        String benefit = getArguments().getString(BENEFIT_KEY, BenefitResHolder.WORK_TOGETHER.name());
+        mBenefitResHolder = BenefitResHolder.valueOf(benefit);
     }
 
     @Nullable
@@ -57,7 +57,7 @@ public class ImagesBenefitFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mBenefitIcon.setImageResource(mBenefit.getDrawableId());
-        mBenefitText.setText(mBenefit.getTextId());
+        mBenefitIcon.setImageResource(mBenefitResHolder.getDrawableId());
+        mBenefitText.setText(mBenefitResHolder.getTextId());
     }
 }

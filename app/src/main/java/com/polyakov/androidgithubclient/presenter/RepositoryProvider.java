@@ -7,8 +7,6 @@ import com.polyakov.androidgithubclient.view.interfaces.GithubRepository;
 
 /**
  * @author Yaroslav
- * todo
- *
  */
 
 public final class RepositoryProvider {

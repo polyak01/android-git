@@ -5,7 +5,7 @@ import android.text.TextUtils;
 
 import com.polyakov.androidgithubclient.R;
 import com.polyakov.androidgithubclient.view.interfaces.ILoginView;
-import com.polyakov.androidgithubclient.view.utils.PreferenceUtils;
+import com.polyakov.androidgithubclient.utils.PreferenceUtils;
 
 import ru.arturvasilov.rxloader.LifecycleHandler;
 

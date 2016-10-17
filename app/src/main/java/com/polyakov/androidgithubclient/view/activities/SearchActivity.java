@@ -2,22 +2,20 @@ package com.polyakov.androidgithubclient.view.activities;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.polyakov.androidgithubclient.R;
 import com.polyakov.androidgithubclient.model.Repository;
-import com.polyakov.androidgithubclient.presenter.RepositoriesPresenter;
+import com.polyakov.androidgithubclient.presenter.SearchPresenter;
 import com.polyakov.androidgithubclient.view.adapters.RepositoriesAdapter;
 import com.polyakov.androidgithubclient.view.general.LoadingDialog;
 import com.polyakov.androidgithubclient.view.interfaces.ILoadingView;
-import com.polyakov.androidgithubclient.view.interfaces.RepositoriesView;
+import com.polyakov.androidgithubclient.view.interfaces.SearchView;
 import com.polyakov.androidgithubclient.view.widgets.BaseAdapter;
 import com.polyakov.androidgithubclient.view.widgets.DividerItemDecoration;
 import com.polyakov.androidgithubclient.view.widgets.EmptyRecyclerView;
@@ -30,10 +28,7 @@ import butterknife.ButterKnife;
 import ru.arturvasilov.rxloader.LifecycleHandler;
 import ru.arturvasilov.rxloader.LoaderLifecycleHandler;
 
-/**
- * @author Yaroslav
- */
-public class RepositoriesActivity extends AppCompatActivity implements RepositoriesView,
+public class SearchActivity extends AppCompatActivity implements SearchView,
         BaseAdapter.OnItemClickListener<Repository> {
 
     @BindView(R.id.toolbar)
@@ -44,27 +39,45 @@ public class RepositoriesActivity extends AppCompatActivity implements Repositor
 
     @BindView(R.id.empty)
     View mEmptyView;
+//
+//    @BindView(R.id.search_view)
+//    android.support.v7.widget.SearchView mSearchView;
+//
+//    private SearchView mSearchView = null;
 
-    @BindView(R.id.fab)
-    FloatingActionButton fab;
-
-    private ILoadingView mLoadingView;
-
-    private RepositoriesAdapter mAdapter;
-
-    private RepositoriesPresenter mPresenter;
+    private ILoadingView mLoadingView = null;
+    private RepositoriesAdapter mAdapter = null;
+    private SearchPresenter mSearchPresenter = null;
 
     public static void start(@NonNull Activity activity) {
-        Intent intent = new Intent(activity, RepositoriesActivity.class);
+        Intent intent = new Intent(activity, SearchActivity.class);
         activity.startActivity(intent);
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.repositories_activity);
+        setContentView(R.layout.search_activity);
         ButterKnife.bind(this);
         setSupportActionBar(mToolbar);
+
+
+
+//        mSearchView.setOnQueryTextListener(new android.support.v7.widget.SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                startSearching(newText);
+//                return false;
+//            }
+//        });
+
+        // TODO:
+
+//         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mLoadingView = LoadingDialog.view(getSupportFragmentManager());
 
@@ -77,15 +90,13 @@ public class RepositoriesActivity extends AppCompatActivity implements Repositor
         mAdapter.setOnItemClickListener(this);
 
         LifecycleHandler lifecycleHandler = LoaderLifecycleHandler.create(this, getSupportLoaderManager());
-        mPresenter = new RepositoriesPresenter(lifecycleHandler, this);
-        mPresenter.init();
-
-        fab.setOnClickListener((View v) ->
-            SearchActivity.start(this));
+        mSearchPresenter = new SearchPresenter(lifecycleHandler, this);
+        mSearchPresenter.loadRepositories();
     }
+
     @Override
-    public void onItemClick(@NonNull Repository item) {
-        mPresenter.onItemClick(item);
+    public void startSearching(String nameOfSearchRepositories) {
+
     }
 
     @Override
@@ -99,8 +110,13 @@ public class RepositoriesActivity extends AppCompatActivity implements Repositor
     }
 
     @Override
+    public void showError() {
+            mAdapter.clear();
+    }
+
+    @Override
     public void showLoading() {
-        mLoadingView.showLoading();
+            mLoadingView.showLoading();
     }
 
     @Override
@@ -109,7 +125,7 @@ public class RepositoriesActivity extends AppCompatActivity implements Repositor
     }
 
     @Override
-    public void showError() {
-        mAdapter.clear();
+    public void onItemClick(@NonNull Repository item) {
+        mSearchPresenter.onItemClick(item);
     }
 }

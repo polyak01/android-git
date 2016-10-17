@@ -7,7 +7,7 @@ import android.support.annotation.NonNull;
 import com.orhanobut.hawk.Hawk;
 import com.orhanobut.hawk.HawkBuilder;
 import com.orhanobut.hawk.LogLevel;
-import com.polyakov.androidgithubclient.model.api.ApiFactory;
+import com.polyakov.androidgithubclient.presenter.api.ApiFactory;
 import com.polyakov.androidgithubclient.presenter.RepositoryProvider;
 
 import io.realm.Realm;

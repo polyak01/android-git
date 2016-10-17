@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-
         android:name=".AppDelegate"
         android:allowBackup="true"
         android:fullBackupContent="false"
@@ -30,14 +29,16 @@
             android:name=".view.activities.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustResize" />
-
         <activity
             android:name=".view.activities.RepositoriesActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".view.activities.CommitsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".view.activities.SearchActivity"
+            android:label="@string/title_activity_search"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

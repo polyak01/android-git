@@ -52,6 +52,8 @@ public class LoadingDialog extends DialogFragment {
                 .create();
     }
 
+
+
     private static class LoadingDialogView implements ILoadingView {
 
         private final FragmentManager mFragmentManager;
