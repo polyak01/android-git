@@ -32,9 +32,6 @@ public interface GithubService {
     @GET("/repos/{user}/{repo}/commits")
     Observable<List<CommitResponse>> commits(@Path("user") String user, @Path("repo") String repo);
 
-    /**
-     * todo search
-     */
     @GET("/search/repositories")
     Observable<RepositoriesResponse> repositorySearching(@Query("q") String nameOfRepo);
 }

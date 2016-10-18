@@ -17,11 +17,14 @@ public class Repository extends RealmObject {
     @SerializedName("name")
     private String mName;
 
-    @SerializedName("description")
-    private String mDescription;
-
     @SerializedName("language")
     private String mLanguage;
+
+    // Also, we can work with:
+    // todo
+
+    @SerializedName("description")
+    private String mDescription;
 
     @SerializedName("stargazers_count")
     private int mStarsCount;
@@ -51,16 +54,8 @@ public class Repository extends RealmObject {
     }
 
     public void setName(String name) {
+        //Sorry for the hardcore))
         mName = name == null ? "" : name;
-    }
-
-    @NonNull
-    public String getDescription() {
-        return mDescription;
-    }
-
-    public void setDescription(String description) {
-        mDescription = description == null ? "" : description;
     }
 
     @NonNull
@@ -69,7 +64,18 @@ public class Repository extends RealmObject {
     }
 
     public void setLanguage(String language) {
+        //Sorry for the hardcore))
         mLanguage = language == null ? "" : language;
+    }
+
+    //todo
+    @NonNull
+    public String getDescription() {
+        return mDescription;
+    }
+
+    public void setDescription(String description) {
+        mDescription = description == null ? "" : description;
     }
 
     public int getStarsCount() {

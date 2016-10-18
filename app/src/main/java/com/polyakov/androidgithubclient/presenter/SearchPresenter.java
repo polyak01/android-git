@@ -3,7 +3,6 @@ package com.polyakov.androidgithubclient.presenter;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.polyakov.androidgithubclient.R;
 import com.polyakov.androidgithubclient.model.Repository;
 import com.polyakov.androidgithubclient.view.interfaces.SearchView;
 
@@ -37,8 +36,6 @@ public class SearchPresenter {
                 .doOnTerminate(mView::hideLoading)
               //  .compose(mLifecycleHandler.load(R.id.search_request))
                 .subscribe(it -> { mView.showRepositories(it.getList()); }, throwable -> mView.showError());
-
-        Log.i("SerchPresnter", "has Finished Load Repo");
     }
 
 }

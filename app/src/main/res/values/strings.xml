@@ -6,7 +6,7 @@
     <string name="log_in">Log in</string>
     <string name="error">Error</string>
     <string name="empty_repositories">Your repositories list is empty</string>
-    <string name="empty_searching_repositories">Your searching repositories list is empty</string>
+    <string name="empty_searching_repositories">Enter a keyword to search</string>
     <string name="empty_commits">No commits, only the cat :3</string>
 
     <string name="benefit_work_together">Work together on one project: review code, create pull requests and collaborate!</string>

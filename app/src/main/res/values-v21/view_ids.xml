@@ -5,6 +5,7 @@
     <item name="toolbar" type="id"/>
     <item name="recyclerView" type="id"/>
     <item name="empty" type="id"/>
+    <item name="cats_image" type="id"/>
 
     <item name="search_toolbar" type="id"/>
     <item name="search_view" type="id"/>

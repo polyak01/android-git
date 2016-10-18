@@ -15,7 +15,7 @@ import okhttp3.Response;
  * @author Yaroslav
  */
 
-public class ApiKeyInterceptor implements Interceptor {
+class ApiKeyInterceptor implements Interceptor {
 
     private final String mToken;
 

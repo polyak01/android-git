@@ -7,13 +7,11 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 
 import com.polyakov.androidgithubclient.R;
 import com.polyakov.androidgithubclient.model.Repository;
 import com.polyakov.androidgithubclient.presenter.SearchPresenter;
-import com.polyakov.androidgithubclient.presenter.api.ApiFactory;
 import com.polyakov.androidgithubclient.view.adapters.RepositoriesAdapter;
 import com.polyakov.androidgithubclient.view.general.LoadingDialog;
 import com.polyakov.androidgithubclient.view.interfaces.ILoadingView;
@@ -29,7 +27,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.arturvasilov.rxloader.LifecycleHandler;
 import ru.arturvasilov.rxloader.LoaderLifecycleHandler;
-import ru.arturvasilov.rxloader.RxUtils;
 
 public class SearchActivity extends AppCompatActivity implements SearchView,
         BaseAdapter.OnItemClickListener<Repository> {
@@ -61,8 +58,6 @@ public class SearchActivity extends AppCompatActivity implements SearchView,
         ButterKnife.bind(this);
         setSupportActionBar(mToolbar);
 
-
-
         mFindView.setOnQueryTextListener(new android.support.v7.widget.SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -76,8 +71,6 @@ public class SearchActivity extends AppCompatActivity implements SearchView,
             }
         });
 
-        // todo
-
         mLoadingView = LoadingDialog.view(getSupportFragmentManager());
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -90,13 +83,6 @@ public class SearchActivity extends AppCompatActivity implements SearchView,
 
         LifecycleHandler lifecycleHandler = LoaderLifecycleHandler.create(this, getSupportLoaderManager());
         mSearchPresenter = new SearchPresenter(lifecycleHandler, this);
-        mSearchPresenter.loadRepositories("e-contact");
-
-//        ApiFactory.getGithubService()
-//                .repositorySearching("e-contact")
-//                .compose(RxUtils.async())
-//                .doOnError(error -> { error.printStackTrace(); })
-//                .subscribe( it -> { Log.i("AAAA", "" + it.getList().size()); }, error -> { error.printStackTrace(); } );
     }
 
     @Override
@@ -106,8 +92,6 @@ public class SearchActivity extends AppCompatActivity implements SearchView,
 
     @Override
     public void showRepositories(@NonNull List<Repository> repositories) {
-        Log.i("AAAAA", "" + repositories);
-
         mAdapter.changeDataSet(repositories);
     }
 

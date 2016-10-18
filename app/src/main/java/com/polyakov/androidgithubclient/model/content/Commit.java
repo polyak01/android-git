@@ -8,6 +8,7 @@ import io.realm.RealmObject;
 
 /**
  * @author Yaroslav
+ * TODO
  */
 
 public class Commit extends RealmObject {
