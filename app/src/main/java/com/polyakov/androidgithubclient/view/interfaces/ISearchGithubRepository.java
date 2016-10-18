@@ -2,6 +2,7 @@ package com.polyakov.androidgithubclient.view.interfaces;
 
 import android.support.annotation.NonNull;
 
+import com.polyakov.androidgithubclient.model.RepositoriesResponse;
 import com.polyakov.androidgithubclient.model.Repository;
 
 import java.util.List;
@@ -15,5 +16,5 @@ import rx.Observable;
 public interface ISearchGithubRepository {
 
     @NonNull
-    Observable<List<Repository>> repositories(String repositoryName);
+    Observable<RepositoriesResponse> repositories(String repositoryName);
 }

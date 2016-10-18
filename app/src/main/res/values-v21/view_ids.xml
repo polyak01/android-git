@@ -6,6 +6,9 @@
     <item name="recyclerView" type="id"/>
     <item name="empty" type="id"/>
 
+    <item name="search_toolbar" type="id"/>
+    <item name="search_view" type="id"/>
+
     <!-- login items -->
     <item name="loginInputLayout" type="id"/>
     <item name="loginEdit" type="id"/>

@@ -2,6 +2,7 @@ package com.polyakov.androidgithubclient.presenter.api;
 
 import com.google.gson.JsonObject;
 import com.polyakov.androidgithubclient.model.Authorization;
+import com.polyakov.androidgithubclient.model.RepositoriesResponse;
 import com.polyakov.androidgithubclient.model.Repository;
 import com.polyakov.androidgithubclient.model.content.CommitResponse;
 
@@ -35,5 +36,5 @@ public interface GithubService {
      * todo search
      */
     @GET("/search/repositories")
-    Observable<List<Repository>> repositorySearching(@Query("q") String nameOfRepo);
+    Observable<RepositoriesResponse> repositorySearching(@Query("q") String nameOfRepo);
 }

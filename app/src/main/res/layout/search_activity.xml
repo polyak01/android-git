@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".view.activities.RepositoriesActivity">
 
-    <include layout="@layout/toolbar"/>
+    <include layout="@layout/search_toolbar"/>
 
     <RelativeLayout
         android:layout_width="match_parent"

@@ -14,6 +14,9 @@ import android.view.View;
 import com.polyakov.androidgithubclient.R;
 import com.polyakov.androidgithubclient.model.Repository;
 import com.polyakov.androidgithubclient.presenter.RepositoriesPresenter;
+import com.polyakov.androidgithubclient.presenter.SearchGitRepository;
+import com.polyakov.androidgithubclient.presenter.SearchRepositoryProvider;
+import com.polyakov.androidgithubclient.presenter.api.ApiFactory;
 import com.polyakov.androidgithubclient.view.adapters.RepositoriesAdapter;
 import com.polyakov.androidgithubclient.view.general.LoadingDialog;
 import com.polyakov.androidgithubclient.view.interfaces.ILoadingView;
@@ -79,6 +82,7 @@ public class RepositoriesActivity extends AppCompatActivity implements Repositor
         LifecycleHandler lifecycleHandler = LoaderLifecycleHandler.create(this, getSupportLoaderManager());
         mPresenter = new RepositoriesPresenter(lifecycleHandler, this);
         mPresenter.init();
+
 
         fab.setOnClickListener((View v) ->
             SearchActivity.start(this));

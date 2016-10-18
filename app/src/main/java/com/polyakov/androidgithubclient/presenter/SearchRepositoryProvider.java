@@ -1,6 +1,7 @@
 package com.polyakov.androidgithubclient.presenter;
 
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.polyakov.androidgithubclient.view.interfaces.ISearchGithubRepository;
 
@@ -18,9 +19,11 @@ public final class SearchRepositoryProvider {
 
     @NonNull
     public static ISearchGithubRepository searchGithubRepository() {
+        Log.i("SearchRepositoryProvider", "start SearchRepositoryProvider");
         if (sGithubRepository == null) {
             sGithubRepository = new SearchGitRepository();
         }
+        Log.i("SearchRepositoryProvider", " " + sGithubRepository);
         return sGithubRepository;
     }
 }

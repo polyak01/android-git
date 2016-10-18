@@ -1,6 +1,7 @@
 package com.polyakov.androidgithubclient.presenter;
 
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.polyakov.androidgithubclient.R;
 import com.polyakov.androidgithubclient.model.Repository;
@@ -9,7 +10,7 @@ import com.polyakov.androidgithubclient.view.interfaces.SearchView;
 import ru.arturvasilov.rxloader.LifecycleHandler;
 
 /**
- * Created by SnowFlake on 17.10.2016.
+ * @author Yaroslav
  */
 
 public class SearchPresenter {
@@ -28,13 +29,16 @@ public class SearchPresenter {
         mView.showCommits(repository);
     }
 
-    public void loadRepositories() {
+    public void loadRepositories(String nameOfRepo) {
+        Log.i("SerchPresnter", "Start Load Repo");
         SearchRepositoryProvider.searchGithubRepository()
-                .repositories("e-contact")
+                .repositories(nameOfRepo)
                 .doOnSubscribe(mView::showLoading)
                 .doOnTerminate(mView::hideLoading)
-                .compose(mLifecycleHandler.load(R.id.repositories_request))
-                .subscribe(mView::showRepositories, throwable -> mView.showError());
+              //  .compose(mLifecycleHandler.load(R.id.search_request))
+                .subscribe(it -> { mView.showRepositories(it.getList()); }, throwable -> mView.showError());
+
+        Log.i("SerchPresnter", "has Finished Load Repo");
     }
 
 }
