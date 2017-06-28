@@ -5,13 +5,14 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.polyakov.androidgithubclient.R;
-import com.polyakov.androidgithubclient.model.Repository;
+import com.polyakov.androidgithubclient.models.Repository;
 import com.polyakov.androidgithubclient.view.widgets.BaseAdapter;
 
 import java.util.List;
 
 /**
- * @author Yaroslav
+ * @author Yaroslav Polyakov
+ *         © 2016 https://github.com/polyak01
  */
 
 public class RepositoriesAdapter extends BaseAdapter<RepositoryHolder, Repository> {

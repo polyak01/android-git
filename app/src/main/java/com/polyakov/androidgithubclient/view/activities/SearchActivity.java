@@ -10,7 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.polyakov.androidgithubclient.R;
-import com.polyakov.androidgithubclient.model.Repository;
+import com.polyakov.androidgithubclient.models.Repository;
 import com.polyakov.androidgithubclient.presenter.SearchPresenter;
 import com.polyakov.androidgithubclient.view.adapters.RepositoriesAdapter;
 import com.polyakov.androidgithubclient.view.general.LoadingDialog;
@@ -28,6 +28,10 @@ import butterknife.ButterKnife;
 import ru.arturvasilov.rxloader.LifecycleHandler;
 import ru.arturvasilov.rxloader.LoaderLifecycleHandler;
 
+/**
+ * @author Yaroslav Polyakov
+ *         © 2016 https://github.com/polyak01
+ */
 public class SearchActivity extends AppCompatActivity implements SearchView,
         BaseAdapter.OnItemClickListener<Repository> {
 

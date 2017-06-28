@@ -2,12 +2,13 @@ package com.polyakov.androidgithubclient.view.interfaces;
 
 import android.support.annotation.NonNull;
 
-import com.polyakov.androidgithubclient.model.Repository;
+import com.polyakov.androidgithubclient.models.Repository;
 
 import java.util.List;
 
 /**
- * @author Yaroslav
+ * @author Yaroslav Polyakov
+ *         © 2016 https://github.com/polyak01
  */
 
 public interface RepositoriesView extends ILoadingView {

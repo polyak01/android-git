@@ -2,15 +2,16 @@ package com.polyakov.androidgithubclient.view.interfaces;
 
 import android.support.annotation.NonNull;
 
-import com.polyakov.androidgithubclient.model.Authorization;
-import com.polyakov.androidgithubclient.model.Repository;
+import com.polyakov.androidgithubclient.models.Authorization;
+import com.polyakov.androidgithubclient.models.Repository;
 
 import java.util.List;
 
 import rx.Observable;
 
 /**
- * @author Yaroslav
+ * @author Yaroslav Polyakov
+ *         © 2016 https://github.com/polyak01
  */
 
 public interface GithubRepository {

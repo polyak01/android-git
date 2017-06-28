@@ -11,7 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.polyakov.androidgithubclient.R;
-import com.polyakov.androidgithubclient.model.Repository;
+import com.polyakov.androidgithubclient.models.Repository;
 import com.polyakov.androidgithubclient.view.widgets.DividerItemDecoration;
 import com.polyakov.androidgithubclient.view.widgets.EmptyRecyclerView;
 
@@ -19,10 +19,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * @author Yaroslav
- * opens empty repository with cat =)
+ * @author Yaroslav Polyakov
+ *         © 2016 https://github.com/polyak01
  */
-
 public class CommitsActivity extends AppCompatActivity {
 
     private static final String REPO_NAME_KEY = "repo_name_key";

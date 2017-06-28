@@ -1,4 +1,4 @@
-package com.polyakov.androidgithubclient.model;
+package com.polyakov.androidgithubclient.models;
 
 import com.google.gson.annotations.SerializedName;
 

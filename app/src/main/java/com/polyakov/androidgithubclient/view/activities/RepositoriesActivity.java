@@ -11,7 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.polyakov.androidgithubclient.R;
-import com.polyakov.androidgithubclient.model.Repository;
+import com.polyakov.androidgithubclient.models.Repository;
 import com.polyakov.androidgithubclient.presenter.RepositoriesPresenter;
 import com.polyakov.androidgithubclient.view.adapters.RepositoriesAdapter;
 import com.polyakov.androidgithubclient.view.general.LoadingDialog;
@@ -30,8 +30,10 @@ import ru.arturvasilov.rxloader.LifecycleHandler;
 import ru.arturvasilov.rxloader.LoaderLifecycleHandler;
 
 /**
- * @author Yaroslav
+ * @author Yaroslav Polyakov
+ *         © 2016 https://github.com/polyak01
  */
+
 public class RepositoriesActivity extends AppCompatActivity implements RepositoriesView,
         BaseAdapter.OnItemClickListener<Repository> {
 

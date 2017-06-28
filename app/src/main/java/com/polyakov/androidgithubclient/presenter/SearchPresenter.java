@@ -3,7 +3,7 @@ package com.polyakov.androidgithubclient.presenter;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.polyakov.androidgithubclient.model.Repository;
+import com.polyakov.androidgithubclient.models.Repository;
 import com.polyakov.androidgithubclient.view.interfaces.SearchView;
 
 import ru.arturvasilov.rxloader.LifecycleHandler;

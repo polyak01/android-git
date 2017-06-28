@@ -19,8 +19,8 @@ import java.lang.ref.WeakReference;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
- * @author Yaroslav
- * 14.10.2016.
+ * @author Yaroslav Polyakov
+ *         © 14.10.2016 https://github.com/polyak01
  */
 
 public class LoadingDialog extends DialogFragment {

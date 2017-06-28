@@ -1,11 +1,10 @@
 package com.polyakov.androidgithubclient.presenter;
 
 import android.support.annotation.NonNull;
-import android.text.TextUtils;
 
 import com.polyakov.androidgithubclient.R;
+import com.polyakov.androidgithubclient.utils.TextUtils;
 import com.polyakov.androidgithubclient.view.interfaces.ILoginView;
-import com.polyakov.androidgithubclient.utils.PreferenceUtils;
 
 import ru.arturvasilov.rxloader.LifecycleHandler;
 
@@ -14,7 +13,6 @@ import ru.arturvasilov.rxloader.LifecycleHandler;
  */
 
 public class LoginPresenter {
-
     private final LifecycleHandler mLifecycleHandler;
     private final ILoginView mAuthView;
 
@@ -25,7 +23,7 @@ public class LoginPresenter {
     }
 
     public void init() {
-        String token = PreferenceUtils.getToken();
+        String token = RepositoryProvider.provideKeyValueStorage().getToken();
         if (!TextUtils.isEmpty(token)) {
             mAuthView.openRepositoriesScreen();
         }

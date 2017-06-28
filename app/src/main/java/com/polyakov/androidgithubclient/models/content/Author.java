@@ -1,4 +1,4 @@
-package com.polyakov.androidgithubclient.model.content;
+package com.polyakov.androidgithubclient.models.content;
 
 import android.support.annotation.NonNull;
 

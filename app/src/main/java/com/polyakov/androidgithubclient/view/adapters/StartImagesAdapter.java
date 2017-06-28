@@ -11,7 +11,8 @@ import com.polyakov.androidgithubclient.view.fragments.ImagesBenefitFragment;
 import java.util.List;
 
 /**
- * @author Yaroslav
+ * @author Yaroslav Polyakov
+ *         © 2016 https://github.com/polyak01
  */
 
 public class StartImagesAdapter extends FragmentStatePagerAdapter {

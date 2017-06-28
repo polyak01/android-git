@@ -3,7 +3,7 @@ package com.polyakov.androidgithubclient.presenter;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.polyakov.androidgithubclient.model.RepositoriesResponse;
+import com.polyakov.androidgithubclient.models.RepositoriesResponse;
 import com.polyakov.androidgithubclient.presenter.api.ApiFactory;
 import com.polyakov.androidgithubclient.view.interfaces.ISearchGithubRepository;
 

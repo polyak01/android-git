@@ -17,7 +17,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * @author Yaroslav
+ * @author Yaroslav Polyakov
+ *         © 2016 https://github.com/polyak01
  */
 
 public class ImagesBenefitFragment extends Fragment {

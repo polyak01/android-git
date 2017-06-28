@@ -6,7 +6,8 @@ import android.support.annotation.StringRes;
 import com.polyakov.androidgithubclient.R;
 
 /**
- * @author Yaroslav
+ * @author Yaroslav Polyakov
+ *         © 2016 https://github.com/polyak01
  */
 
 public enum BenefitResHolder {

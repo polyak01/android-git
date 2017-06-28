@@ -6,13 +6,14 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.polyakov.androidgithubclient.R;
-import com.polyakov.androidgithubclient.model.Repository;
+import com.polyakov.androidgithubclient.models.Repository;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * @author Yaroslav
+ * @author Yaroslav Polyakov
+ *         © 2016 https://github.com/polyak01
  */
 
 public class RepositoryHolder extends RecyclerView.ViewHolder {

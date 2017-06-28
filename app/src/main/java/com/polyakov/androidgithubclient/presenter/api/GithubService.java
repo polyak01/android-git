@@ -1,10 +1,10 @@
 package com.polyakov.androidgithubclient.presenter.api;
 
 import com.google.gson.JsonObject;
-import com.polyakov.androidgithubclient.model.Authorization;
-import com.polyakov.androidgithubclient.model.RepositoriesResponse;
-import com.polyakov.androidgithubclient.model.Repository;
-import com.polyakov.androidgithubclient.model.content.CommitResponse;
+import com.polyakov.androidgithubclient.models.Authorization;
+import com.polyakov.androidgithubclient.models.RepositoriesResponse;
+import com.polyakov.androidgithubclient.models.Repository;
+import com.polyakov.androidgithubclient.models.content.CommitResponse;
 
 import java.util.List;
 

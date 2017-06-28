@@ -1,4 +1,4 @@
-package com.polyakov.androidgithubclient.model;
+package com.polyakov.androidgithubclient.models;
 
 import android.support.annotation.NonNull;
 
@@ -54,7 +54,6 @@ public class Repository extends RealmObject {
     }
 
     public void setName(String name) {
-        //Sorry for the hardcore))
         mName = name == null ? "" : name;
     }
 
@@ -64,7 +63,6 @@ public class Repository extends RealmObject {
     }
 
     public void setLanguage(String language) {
-        //Sorry for the hardcore))
         mLanguage = language == null ? "" : language;
     }
 

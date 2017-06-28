@@ -2,12 +2,12 @@ package com.polyakov.androidgithubclient.presenter;
 
 import android.support.annotation.NonNull;
 
-import com.polyakov.androidgithubclient.model.Authorization;
-import com.polyakov.androidgithubclient.model.Repository;
+import com.polyakov.androidgithubclient.models.Authorization;
+import com.polyakov.androidgithubclient.models.Repository;
 import com.polyakov.androidgithubclient.presenter.api.ApiFactory;
 import com.polyakov.androidgithubclient.view.interfaces.GithubRepository;
 import com.polyakov.androidgithubclient.utils.AuthorizationUtils;
-import com.polyakov.androidgithubclient.utils.PreferenceUtils;
+import com.polyakov.androidgithubclient.utils.KeyValueStorage;
 
 import java.util.List;
 
@@ -16,9 +16,12 @@ import io.realm.RealmResults;
 import ru.arturvasilov.rxloader.RxUtils;
 import rx.Observable;
 
+
 /**
- * @author Yaroslav
+ * @author Yaroslav Polyakov
+ *         © 28.06.17 https://github.com/polyak01
  */
+
 
 public class DefaultGithubRepository implements GithubRepository {
 
@@ -48,8 +51,9 @@ public class DefaultGithubRepository implements GithubRepository {
         return ApiFactory.getGithubService()
                 .authorize(authorizationString, AuthorizationUtils.createAuthorizationParam())
                 .flatMap(authorization -> {
-                    PreferenceUtils.saveToken(authorization.getToken());
-                    PreferenceUtils.saveUserName(login);
+                    KeyValueStorage storage = RepositoryProvider.provideKeyValueStorage();
+                    storage.saveToken(authorization.getToken());
+                    storage.saveUserName(login);
                     ApiFactory.recreate();
                     return Observable.just(authorization);
                 })

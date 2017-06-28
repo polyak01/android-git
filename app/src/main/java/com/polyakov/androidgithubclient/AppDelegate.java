@@ -15,7 +15,8 @@ import io.realm.RealmConfiguration;
 import io.realm.rx.RealmObservableFactory;
 
 /**
- * @author Yaroslav
+ * @author Yaroslav Polyakov
+ *         © 2016 https://github.com/polyak01
  */
 
 public class AppDelegate extends Application {

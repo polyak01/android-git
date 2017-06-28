@@ -1,9 +1,10 @@
 package com.polyakov.androidgithubclient.presenter.api;
 
 import android.support.annotation.NonNull;
-import android.text.TextUtils;
 
-import com.polyakov.androidgithubclient.utils.PreferenceUtils;
+import com.polyakov.androidgithubclient.presenter.RepositoryProvider;
+import com.polyakov.androidgithubclient.utils.KeyValueStorage;
+import com.polyakov.androidgithubclient.utils.TextUtils;
 
 import java.io.IOException;
 
@@ -20,7 +21,7 @@ class ApiKeyInterceptor implements Interceptor {
     private final String mToken;
 
     private ApiKeyInterceptor() {
-        mToken = PreferenceUtils.getToken();
+        mToken = RepositoryProvider.provideKeyValueStorage().getToken();
     }
 
     @NonNull
@@ -39,4 +40,3 @@ class ApiKeyInterceptor implements Interceptor {
         return chain.proceed(request);
     }
 }
-
